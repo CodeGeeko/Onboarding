@@ -1,0 +1,132 @@
+2021-08-06 22:42:59.263 Verbose logging enabled
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2021-08-06 22:42:59.751 Verbose logging enabled
+ /$$      /$$ /$$                     /$$      /$$                     /$$      
+| $$  /$ | $$|__/                    | $$$    /$$$                    | $$      
+| $$ /$$$| $$ /$$  /$$$$$$   /$$$$$$ | $$$$  /$$$$  /$$$$$$   /$$$$$$$| $$   /$$
+| $$/$$ $$ $$| $$ /$$__  $$ /$$__  $$| $$ $$/$$ $$ /$$__  $$ /$$_____/| $$  /$$/
+| $$$$_  $$$$| $$| $$  \__/| $$$$$$$$| $$  $$$| $$| $$  \ $$| $$      | $$$$$$/ 
+| $$$/ \  $$$| $$| $$      | $$_____/| $$\  $ | $$| $$  | $$| $$      | $$_  $$ 
+| $$/   \  $$| $$| $$      |  $$$$$$$| $$ \/  | $$|  $$$$$$/|  $$$$$$$| $$ \  $$
+|__/     \__/|__/|__/       \_______/|__/     |__/ \______/  \_______/|__/  \__/
+
+port:                         8080
+enable-browser-proxying:      false
+disable-banner:               false
+no-request-journal:           false
+verbose:                      true
+
+2021-08-06 22:44:08.068 Admin request received:
+0:0:0:0:0:0:0:1 - GET /
+
+Accept: [text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9]
+Connection: [keep-alive]
+User-Agent: [Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36]
+Sec-Fetch-Site: [none]
+Sec-Fetch-Dest: [document]
+Host: [localhost:8080]
+Accept-Encoding: [gzip, deflate, br]
+Sec-Fetch-Mode: [navigate]
+sec-ch-ua: ["Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"]
+sec-ch-ua-mobile: [?0]
+Cache-Control: [max-age=0]
+Upgrade-Insecure-Requests: [1]
+Sec-Fetch-User: [?1]
+Accept-Language: [en-GB,en-US;q=0.9,en;q=0.8]
+
+
+2021-08-06 22:44:18.234 Admin request received:
+0:0:0:0:0:0:0:1 - GET /geeko/api/onboarding
+
+Accept: [text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9]
+Connection: [keep-alive]
+User-Agent: [Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36]
+Sec-Fetch-Site: [none]
+Sec-Fetch-Dest: [document]
+Host: [localhost:8080]
+Accept-Encoding: [gzip, deflate, br]
+Sec-Fetch-Mode: [navigate]
+sec-ch-ua: ["Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"]
+sec-ch-ua-mobile: [?0]
+Upgrade-Insecure-Requests: [1]
+Sec-Fetch-User: [?1]
+Accept-Language: [en-GB,en-US;q=0.9,en;q=0.8]
+
+
+2021-08-06 23:20:00.348 Warning: failed to parse the XML document. Reason: Premature end of file.
+XML: 
+2021-08-06 23:20:00.358 Warning: failed to parse the XML document. Reason: Premature end of file.
+XML: 
+2021-08-06 23:20:00.365 
+                                               Request was not matched
+                                               =======================
+
+-----------------------------------------------------------------------------------------------------------------------
+| Closest stub                                             | Request                                                  |
+-----------------------------------------------------------------------------------------------------------------------
+                                                           |
+GET                                                        | GET
+geeko/api/discover                                         | /tutorials                                          <<<<< URL does not match. URLs must start with a /
+                                                           |
+                                                           |
+-----------------------------------------------------------------------------------------------------------------------
+
+2021-08-06 23:20:00.367 Request received:
+0:0:0:0:0:0:0:1 - GET /tutorials
+
+Accept: [text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9]
+Connection: [keep-alive]
+User-Agent: [Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36]
+Sec-Fetch-Site: [none]
+Sec-Fetch-Dest: [document]
+Host: [localhost:8080]
+Accept-Encoding: [gzip, deflate, br]
+Sec-Fetch-Mode: [navigate]
+sec-ch-ua: ["Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"]
+sec-ch-ua-mobile: [?0]
+Upgrade-Insecure-Requests: [1]
+Sec-Fetch-User: [?1]
+Accept-Language: [en-GB,en-US;q=0.9,en;q=0.8]
+
+
+
+Matched response definition:
+(no response definition configured)
+
+Response:
+HTTP/1.1 404
+(no headers)
+
+
+2021-08-06 23:20:00.381 Admin request received:
+0:0:0:0:0:0:0:1 - GET /not-matched
+
+Accept: [text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9]
+Connection: [keep-alive]
+User-Agent: [Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36]
+Sec-Fetch-Site: [none]
+Sec-Fetch-Dest: [document]
+Host: [localhost:8080]
+Accept-Encoding: [gzip, deflate, br]
+Sec-Fetch-Mode: [navigate]
+sec-ch-ua: ["Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"]
+sec-ch-ua-mobile: [?0]
+Upgrade-Insecure-Requests: [1]
+Sec-Fetch-User: [?1]
+Accept-Language: [en-GB,en-US;q=0.9,en;q=0.8]
+
+
+2021-08-06 23:20:00.385 Warning: failed to parse the XML document. Reason: Premature end of file.
+XML: 
+2021-08-06 23:20:26.953 Admin request received:
+0:0:0:0:0:0:0:1 - POST /shutdown
+
+User-Agent: [curl/7.64.1]
+Host: [localhost:8080]
+Accept: [*/*]
+Content-Length: [0]
+Content-Type: [application/x-www-form-urlencoded]
+
+

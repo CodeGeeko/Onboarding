@@ -1,0 +1,29 @@
+{
+  "name" : "socialLogin",
+  "request" : {
+    "url" : "geeko/api/authentication",
+    "method" : "POST",
+    "bodyPatterns" : [
+      {
+        "matchesXPath": {
+          "expression": "//*/text()",
+          "contains": "local--"
+        }
+      }
+    ]
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName": "/login-response.json",
+    "headers" : {
+      "Date" : "Wed, 12 Dec 2018 16:38:14 GMT",
+      "Server" : "Apache/2.2.15 (Red Hat)",
+      "Accept" : "text/xml, text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2",
+      "X-OneAgent-JS-Injection" : "true",
+      "Connection" : "close",
+      "Content-Type" : "text/xml; charset=utf-8"
+    }
+  },
+  "persistent": true,
+  "scenarioName": "auth-type"
+}

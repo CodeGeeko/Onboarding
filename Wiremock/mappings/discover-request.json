@@ -1,0 +1,14 @@
+{        
+    "request": {                                    
+        "method": "GET",                        
+        "url": "geeko/api/discover"
+    },                                      
+    "response": {                                   
+        "status": 200,                          
+        "bodyFileName": "/discover-response.json",
+        "headers": {
+            "Content-Type": "application/json",
+            "Cache-Control": "max-age=86400"
+        }
+    }                                               
+}

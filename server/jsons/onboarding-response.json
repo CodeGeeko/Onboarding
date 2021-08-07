@@ -1,0 +1,23 @@
+{
+"onboarding":
+{
+    "sliders": [
+        {
+            "title":"Learn new skills every day with free !",
+            "description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
+            "bannerImageName":"bannerImage-1"
+        },
+        {
+            "title":"Select your course based on your Interest !",
+            "description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
+            "bannerImageName":"bannerImage-2"
+        },
+        {
+            "title":"Your favorite Guru will give better teaching!",
+            "description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal ",
+            "bannerImageName":"bannerImage-3"
+        }
+    ],
+    "interests": ["Software Development", "Machine Learning & AI", "IT Ops", "Data Professional", "Information & Cybersecurity", "Cloud computing"]
+}
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "badgeIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

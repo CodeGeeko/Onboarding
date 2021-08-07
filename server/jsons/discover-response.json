@@ -1,0 +1,54 @@
+{
+    "tutorials": [
+        {
+            "teacherName": "Mr. Fergusion",
+            "topicName": "Software Development",
+            "videoBannerUrl": "https://5.imimg.com/data5/IX/GP/GLADMIN-14477365/software-development-courses-500x500.png",
+            "badge": "Silver",
+            "avgRatings": 3.5,
+            "views": 100,
+            "kudos": 100,
+            "duration": 180
+        },
+        {
+            "teacherName": "Mr. Michael",
+            "topicName": "Machine Learning & AI",
+            "videoBannerUrl": "https://www.simplilearn.com/ice9/free_resources_article_thumb/How-to-Build-a-Career-in-AI-and-Machine-Learning-2.jpg",
+            "badge": "Silver",
+            "avgRatings": 4.0,
+            "views": 100,
+            "kudos": 100,
+            "duration": 360
+        },
+        {
+            "teacherName": "Mr. Kuldeep",
+            "topicName": "Software Development",
+            "videoBannerUrl": "https://5.imimg.com/data5/IX/GP/GLADMIN-14477365/software-development-courses-500x500.png",
+            "badge": "Silver",
+            "avgRatings": 4.9,
+            "views": 100,
+            "kudos": 100,
+            "duration": 180
+        },
+        {
+            "teacherName": "Ms. Marie",
+            "topicName": "IT Ops",
+            "videoBannerUrl": "https://i0.wp.com/www.it-ops.co.il/wp-content/uploads/2017/11/cropped-favicon-transparent.png?fit=512%2C512&ssl=1",
+            "badge": "Broze",
+            "avgRatings": 3.0,
+            "views": 100,
+            "kudos": 100,
+            "duration": 90
+        },
+        {
+            "teacherName": "Ms. Julia",
+            "topicName": "Data Professional",
+            "videoBannerUrl": "https://tax.thomsonreuters.com/blog/wp-content/uploads/sites/17/2018/05/iStock_88111151_XLARGE-v2-800x450.jpg",
+            "badge": "Silver",
+            "avgRatings": 4.5,
+            "views": 100,
+            "kudos": 100,
+            "duration": 120
+        }
+    ]
+}
