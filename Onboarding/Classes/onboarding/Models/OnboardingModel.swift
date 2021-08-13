@@ -31,12 +31,15 @@ struct OnboardingClass: Codable {
 
 // MARK: - Slider
 struct Slider: Codable {
-    let title, sliderDescription, bannerImageName: String
-    
+    let title, sliderDescription, bannerImageName, infoBackImageName: String
+    let pageIndex: Int
+
     enum CodingKeys: String, CodingKey {
         case title
         case sliderDescription = "description"
         case bannerImageName
+        case infoBackImageName
+        case pageIndex
     }
 }
 

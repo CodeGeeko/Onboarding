@@ -35,3 +35,13 @@ extension UIImageView {
     }
 
 }
+
+extension UIImage {
+    static func bundledImage<Class: NSObject>(for class: Class.Type, with name: String) -> UIImage? {
+        let image = UIImage(named: name)
+        if image == nil {
+            return UIImage(named: name, in: Bundle(for: Class.self), compatibleWith: nil)
+        }
+        return image
+    }
+}

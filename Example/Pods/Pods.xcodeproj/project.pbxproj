@@ -13,8 +13,11 @@
 		132E0F619E4338E5D1B27E4C72076B3F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC9B604FA843EF26A951C43C0CE8B /* Notifications.swift */; };
 		1945CD5D63A1C164AEAAA9A33E85571E /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0389D0AFC58E73A075F3F7740CE1D441 /* Alamofire-dummy.m */; };
 		1986B50C74F1697EA43F68335C93CEB3 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616062C81FDAB5C58156D8D00F0FC48D /* MultipartFormData.swift */; };
+		2116FB7426C6F3C700CD89E6 /* SliderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116FB7326C6F3C700CD89E6 /* SliderContainer.swift */; };
+		2116FB7826C715BA00CD89E6 /* Array+Geeko.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116FB7726C715BA00CD89E6 /* Array+Geeko.swift */; };
+		2116FB7E26C718D100CD89E6 /* UIColor+Geeko.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116FB7D26C718D100CD89E6 /* UIColor+Geeko.swift */; };
+		2116FB8026C72B4D00CD89E6 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116FB7F26C72B4D00CD89E6 /* OnboardingPageViewController.swift */; };
 		2194A7E226BDEDCA00C26C9F /* Onboarding.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2194A7E126BDEDCA00C26C9F /* Onboarding.xcassets */; };
-		2194A7E426BDEFDC00C26C9F /* SliderContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2194A7E326BDEFDC00C26C9F /* SliderContainer.xib */; };
 		2194A7E626BDFEDD00C26C9F /* OnboardingFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2194A7E526BDFEDD00C26C9F /* OnboardingFlow.storyboard */; };
 		2A9C02455EC1E4135FE1BD89FCE2D292 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BAB3E27D0D9A8B1947C0BBE2E7E31C /* UITableView+Extensions.swift */; };
 		2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB0C226D602EC371BECC5BD2CC9370 /* SessionDelegate.swift */; };
@@ -53,8 +56,6 @@
 		E76EE1339A802DF0E5D6638FA38A340F /* DiscoverContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F292B642896106DDAD31E07149166AF6 /* DiscoverContainer.swift */; };
 		E7F273EDA9C5B3DA39BB37791B8DD2F8 /* UIImageView+URLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E45ADBD70EE0AB251B6F0408F50D48 /* UIImageView+URLCache.swift */; };
 		F13F2AA7F2E6D95A181CAB99B900D531 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B86CF47C1835EA00FE7A8B8D5CCC5 /* ServerTrustPolicy.swift */; };
-		F19B92BE38BA1A29B2EFE103FCC0EB68 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BA000200D6392BC0868A699DFB40D3 /* OnboardingPageViewController.swift */; };
-		F33F53C34115B47DF72F8E5F7C7C48F8 /* SliderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E4844D72AAF4398B4670BBC4FB12D /* SliderContainer.swift */; };
 		F7B74645E07C39771156A1FA413B98D4 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FFE4C558583FF9884EBA9DDF1C6F0DCD /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB3C7DF834EB79D0BE52086653BF6631 /* OnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC29B42F281C89B765A2EA52C4E0EEC /* OnboardingDataSource.swift */; };
 /* End PBXBuildFile section */
@@ -99,8 +100,11 @@
 		12DC4211AE7C760F9C7F0BFCF3DFCCDA /* Pods-Onboarding_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Onboarding_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1478469D7D01292A35537D330D207058 /* Pods-Onboarding_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Onboarding_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		162B3DEADB902E3ECEE9F5DF6429E59B /* Pods-Onboarding_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Onboarding_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		2116FB7326C6F3C700CD89E6 /* SliderContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderContainer.swift; sourceTree = "<group>"; };
+		2116FB7726C715BA00CD89E6 /* Array+Geeko.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Geeko.swift"; sourceTree = "<group>"; };
+		2116FB7D26C718D100CD89E6 /* UIColor+Geeko.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Geeko.swift"; sourceTree = "<group>"; };
+		2116FB7F26C72B4D00CD89E6 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		2194A7E126BDEDCA00C26C9F /* Onboarding.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Onboarding.xcassets; path = Onboarding/Onboarding.xcassets; sourceTree = "<group>"; };
-		2194A7E326BDEFDC00C26C9F /* SliderContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderContainer.xib; sourceTree = "<group>"; };
 		2194A7E526BDFEDD00C26C9F /* OnboardingFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingFlow.storyboard; sourceTree = "<group>"; };
 		219948A9AFBDCCBE00D081472F0EDEEF /* Pods-Onboarding_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Onboarding_Example-frameworks.sh"; sourceTree = "<group>"; };
 		23F6F3A0C5094AC74877A4E637DE8DF4 /* OnboardingStepFlowFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingStepFlowFactory.swift; sourceTree = "<group>"; };
@@ -124,7 +128,6 @@
 		58ACD677FD4B95B260E1B1C656D08B84 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED047C2109FD8C989F0D93F032AAA29 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
-		5F2E4844D72AAF4398B4670BBC4FB12D /* SliderContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SliderContainer.swift; sourceTree = "<group>"; };
 		5FEB2726D8D5B1A0A657204329BCF4BD /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		607886188340263F68799F4D37923923 /* Onboarding.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Onboarding.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		616062C81FDAB5C58156D8D00F0FC48D /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
@@ -162,7 +165,6 @@
 		E50CF11B4AE08E86637715A9E4953675 /* Onboarding-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Onboarding-prefix.pch"; sourceTree = "<group>"; };
 		E63F367F44FC87833A1792B541781BB7 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		EE4A62401E03A1B878E6936ED89925F4 /* SliderViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SliderViewModel.swift; sourceTree = "<group>"; };
-		F0BA000200D6392BC0868A699DFB40D3 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		F1DA11279AA1D6557BB10C9936E9B3A3 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		F292B642896106DDAD31E07149166AF6 /* DiscoverContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DiscoverContainer.swift; sourceTree = "<group>"; };
 		F8D7A47A590ED08C21AB24503841C370 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
@@ -211,6 +213,8 @@
 		08C543836BC89C09B699D8A17C6C425C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2116FB7D26C718D100CD89E6 /* UIColor+Geeko.swift */,
+				2116FB7726C715BA00CD89E6 /* Array+Geeko.swift */,
 				53AEC588807D0DD393C36DE0200F5C84 /* ClassInfo.swift */,
 				45F53FFC923CBA5DCD55A701D39FCE62 /* ReusableView.swift */,
 				68E45ADBD70EE0AB251B6F0408F50D48 /* UIImageView+URLCache.swift */,
@@ -280,7 +284,6 @@
 		307C9F877E581910625A462B2B91DBE4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2194A7E326BDEFDC00C26C9F /* SliderContainer.xib */,
 				3EFCF4AC345E589A79E5DA664BF870BA /* InterestsView.xib */,
 				2194A7E526BDFEDD00C26C9F /* OnboardingFlow.storyboard */,
 			);
@@ -390,10 +393,10 @@
 		A4528D49E04D60CFCCCA96EEBB9BBA81 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2116FB7F26C72B4D00CD89E6 /* OnboardingPageViewController.swift */,
 				F292B642896106DDAD31E07149166AF6 /* DiscoverContainer.swift */,
 				FDF1DED3A907E55A3BD9217EA68CC3D3 /* IntrestsContainer.swift */,
-				F0BA000200D6392BC0868A699DFB40D3 /* OnboardingPageViewController.swift */,
-				5F2E4844D72AAF4398B4670BBC4FB12D /* SliderContainer.swift */,
+				2116FB7326C6F3C700CD89E6 /* SliderContainer.swift */,
 				0DF45A0E82733D9316F740DEB17AF680 /* SliderFlowViewController.swift */,
 			);
 			name = Controllers;
@@ -653,7 +656,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2194A7E626BDFEDD00C26C9F /* OnboardingFlow.storyboard in Resources */,
-				2194A7E426BDEFDC00C26C9F /* SliderContainer.xib in Resources */,
 				2194A7E226BDEDCA00C26C9F /* Onboarding.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,17 +704,19 @@
 				E76EE1339A802DF0E5D6638FA38A340F /* DiscoverContainer.swift in Sources */,
 				3E1293C6FDC34EA1B697294B49F2CBF3 /* DiscoverTableManager.swift in Sources */,
 				AA1AF99EBE4D2BF6A5742A374C08FAEE /* DiscoverViewModel.swift in Sources */,
+				2116FB7E26C718D100CD89E6 /* UIColor+Geeko.swift in Sources */,
 				AA4A15AD667336C82D39C269AB595D24 /* InterestsView.xib in Sources */,
 				47C280D2521E1C7AD500631556526264 /* IntrestsContainer.swift in Sources */,
 				AE0ECB21F114363BA81D01354220C75F /* Onboarding-dummy.m in Sources */,
 				FB3C7DF834EB79D0BE52086653BF6631 /* OnboardingDataSource.swift in Sources */,
+				2116FB7826C715BA00CD89E6 /* Array+Geeko.swift in Sources */,
 				CD1F125AE7019881B42107599449BBE5 /* OnboardingFlowNavigationCoordinator.swift in Sources */,
 				CE4B837A5BC53AFB89D33B82ABF80BE9 /* OnboardingModel.swift in Sources */,
-				F19B92BE38BA1A29B2EFE103FCC0EB68 /* OnboardingPageViewController.swift in Sources */,
+				2116FB8026C72B4D00CD89E6 /* OnboardingPageViewController.swift in Sources */,
 				89B597EF57AB08BE2FC59B01AEB7C97E /* OnboardingStepFlowFactory.swift in Sources */,
 				78DE914ACED2AF61F47486C1DDCC0DF2 /* ReusableView.swift in Sources */,
-				F33F53C34115B47DF72F8E5F7C7C48F8 /* SliderContainer.swift in Sources */,
 				30ACFCEAFE875763BA3924FF0F613E82 /* SliderFlowViewController.swift in Sources */,
+				2116FB7426C6F3C700CD89E6 /* SliderContainer.swift in Sources */,
 				AA3DE606D0BB22B68A3642904377D868 /* SliderViewModel.swift in Sources */,
 				E7F273EDA9C5B3DA39BB37791B8DD2F8 /* UIImageView+URLCache.swift in Sources */,
 				2A9C02455EC1E4135FE1BD89FCE2D292 /* UITableView+Extensions.swift in Sources */,
