@@ -1,21 +1,11 @@
 class SliderFlowViewController: UIViewController {
-    private var contentProvider: Slider?
+    var contentProvider: Slider?
     @IBOutlet private weak var onboardingBannerImage: UIImageView!
+    @IBOutlet private weak var infoBackImage: UIImageView!
     @IBOutlet private weak var infoContainerView: UIView!
     @IBOutlet private weak var infoTitle: UILabel!
     @IBOutlet private weak var infoDescription: UILabel!
 
-    public init(nibName nibNameOrNil: String?,
-                bundle nibBundleOrNil: Bundle?,
-                contentProvider: Slider) {
-        self.contentProvider = contentProvider
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         render()
@@ -29,16 +19,17 @@ private extension SliderFlowViewController {
     }
 
     func setUpStyle() {
-        infoTitle.font = .boldSystemFont(ofSize: 16.0)
+        infoTitle.font = .boldSystemFont(ofSize: 32.0)
         infoTitle.textColor = .white
-        infoDescription.font = .systemFont(ofSize: 8.0)
+        infoDescription.font = .systemFont(ofSize: 16.0)
         infoDescription.textColor = .white
     }
 
     func populateSlide(with slider: Slider?) {
         infoTitle.text = slider?.title
         infoDescription.text = slider?.sliderDescription
-        onboardingBannerImage.image = UIImage(named: slider?.bannerImageName ?? "")
+        onboardingBannerImage.image = UIImage.bundledImage(for: SliderFlowViewController.self, with: slider?.bannerImageName ?? "bannerImage-1")
+        infoBackImage.image = UIImage.bundledImage(for: SliderFlowViewController.self, with: slider?.infoBackImageName ?? "infoBackImage-1")
     }
 }
 

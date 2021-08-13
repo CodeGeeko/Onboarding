@@ -1,5 +1,6 @@
 class SliderViewModel {
-    private(set) var model: Onboarding?
+    static let shared = SliderViewModel()
+    private var slider: Onboarding?
 }
 
 // MARK: Network
@@ -12,7 +13,7 @@ extension SliderViewModel {
                 return
             }
             guard let info = info else { return }
-            self.model = info
+            self.slider = info
             completion(error)
         }
     }
@@ -24,22 +25,22 @@ extension SliderViewModel {
     }
 
     func title(for slideAtIndex: Int) -> String? {
-        return self.model?.onboarding.sliders[slideAtIndex].title
+        return self.slider?.onboarding.sliders[slideAtIndex].title
     }
 
     func description(for slideAtIndex: Int) -> String? {
-        return self.model?.onboarding.sliders[slideAtIndex].sliderDescription
+        return self.slider?.onboarding.sliders[slideAtIndex].sliderDescription
     }
 
     func bannerImageUrl(for slideAtIndex: Int) -> String? {
-        return self.model?.onboarding.sliders[slideAtIndex].bannerImageName
+        return self.slider?.onboarding.sliders[slideAtIndex].bannerImageName
     }
 
     var interests: [String]? {
-        return self.model?.onboarding.interests
+        return self.slider?.onboarding.interests
     }
 
     var sliders: [Slider]? {
-        return self.model?.onboarding.sliders
+        return self.slider?.onboarding.sliders
     }
 }

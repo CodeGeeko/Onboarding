@@ -1,31 +1,39 @@
 import UIKit
 
 class OnboardingPageViewController: UIPageViewController {
-    
     weak var pageDelegate: OnboardingPageViewControllerDelegate?
-    
+
     private(set) lazy var orderedViewControllers: [UIViewController] = []
+
+    public init(with delegate: OnboardingPageViewControllerDelegate? = nil) {
+        self.pageDelegate = delegate
+        super.init(transitionStyle: .scroll,
+                   navigationOrientation: .horizontal,
+                   options: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dataSource = self
         delegate = self
-        
+
         if let initialViewController = orderedViewControllers.first {
             scrollToViewController(viewController: initialViewController)
         }
-        
         pageDelegate?.onboardingPageViewController(onboardingPageViewController: self, didUpdatePageCount: orderedViewControllers.count)
     }
-    
+
     public func configure(with viewControllers: [UIViewController]) {
         orderedViewControllers = []
         for controller in viewControllers {
             orderedViewControllers.append(controller)
         }
     }
-    
+
     /**
      Scrolls to the next view controller.
      */
@@ -35,7 +43,7 @@ class OnboardingPageViewController: UIPageViewController {
             scrollToViewController(viewController: nextViewController)
         }
     }
-    
+
     /**
      Scrolls to the view controller at the given index. Automatically calculates
      the direction.
@@ -132,7 +140,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 
 extension OnboardingPageViewController: UIPageViewControllerDelegate {
     
-    func pageViewController(pageViewController: UIPageViewController,
+    func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
                             transitionCompleted completed: Bool) {
@@ -150,7 +158,7 @@ protocol OnboardingPageViewControllerDelegate: class {
      - parameter count: the total number of pages.
      */
     func onboardingPageViewController(onboardingPageViewController: OnboardingPageViewController,
-                                    didUpdatePageCount count: Int)
+                                      didUpdatePageCount count: Int)
     
     /**
      Called when the current index is updated.
@@ -159,6 +167,6 @@ protocol OnboardingPageViewControllerDelegate: class {
      - parameter index: the index of the currently visible page.
      */
     func onboardingPageViewController(onboardingPageViewController: OnboardingPageViewController,
-                                    didUpdatePageIndex index: Int)
+                                      didUpdatePageIndex index: Int)
     
 }
