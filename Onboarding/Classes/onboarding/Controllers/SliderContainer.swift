@@ -85,9 +85,9 @@ extension SliderContainer {
                 pageViewController.view.bottomAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
             }
         }
-        self.addChildViewController(pageViewController)
+        self.addChild(pageViewController)
         self.view.addSubview(pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
+        pageViewController.didMove(toParent: self)
     }
     
     func getCurrentSliderContainer() -> UIViewController? {
