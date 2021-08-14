@@ -31,6 +31,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'Onboarding/Classes/**/*'
+  s.resource_bundle = { 'Onboarding' => 'Onboarding/**/*.{strings,xcassets}' }
+  s.resources       = 'Onboarding/**/*.{xib,storyboard}'
   
   # s.resource_bundles = {
   #   'Onboarding' => ['Onboarding/Assets/*.png']
