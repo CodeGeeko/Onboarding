@@ -1,8 +1,8 @@
-use_frameworks!
-
-platform :ios, '9.0'
-
+platform :ios, '13.0'
 target 'Onboarding_Example' do
+  use_frameworks!
+  supports_swift_versions '>= 4.0'
+  
   pod 'Onboarding', :path => '../'
 
   target 'Onboarding_Tests' do
