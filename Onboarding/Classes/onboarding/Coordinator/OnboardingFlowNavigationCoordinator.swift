@@ -1,27 +1,28 @@
 public class OnboardingFlowNavigationCoordinator: NSObject {
-    var stepNavigationController: UINavigationController
+    var stepNavigationController: UINavigationController?
     
-    public init(with stepNavigationController: UINavigationController) {
+    public init(with stepNavigationController: UINavigationController? = UINavigationController()) {
         self.stepNavigationController = stepNavigationController
         super.init()
     }
-    
+
     public func start(with screen: ScreenType,
                       delegate: OnboardingFlowControllerDelegate? = nil) {
         let viewController = OnboardingStepFlowFactory.viewController(for: screen,
                                                                       with: delegate)
-        switch screen {
-            case .infoSlider:
-                let journey: UINavigationController =  UINavigationController(rootViewController: viewController)
-                stepNavigationController.present(journey,
-                                                 animated: true,
-                                                 completion: nil)
-            case .interests, .discover: stepNavigationController.pushViewController(viewController,
-                                                                                    animated: true)
-        }
+        stepNavigationController?.pushViewController(viewController,
+                                                    animated: true)
     }
-    
-    public func finish() {
-        stepNavigationController.popViewController(animated: true)
+
+    func finish() {
+        stepNavigationController?.popViewController(animated: true)
+    }
+
+    func pushOrPresent(with controller: UIViewController, isPush: Bool = true) {
+        isPush ? (stepNavigationController?.pushViewController(controller,
+            animated: true)) :
+            (stepNavigationController?.present(controller,
+                                              animated: true,
+                                              completion: nil))
     }
 }

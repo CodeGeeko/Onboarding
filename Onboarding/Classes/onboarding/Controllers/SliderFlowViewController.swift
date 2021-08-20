@@ -28,8 +28,8 @@ private extension SliderFlowViewController {
     func populateSlide(with slider: Slider?) {
         infoTitle.text = slider?.title
         infoDescription.text = slider?.sliderDescription
-        onboardingBannerImage.image = UIImage.bundledImage(for: SliderFlowViewController.self, with: slider?.bannerImageName ?? "bannerImage-1")
-        infoBackImage.image = UIImage.bundledImage(for: SliderFlowViewController.self, with: slider?.infoBackImageName ?? "infoBackImage-1")
+        onboardingBannerImage.image = UIImage.bundledImage(for: SliderFlowViewController.self, with: slider?.bannerImageName ?? "bannerImage-1", bundleName: "Onboarding")
+        infoBackImage.image = UIImage.bundledImage(for: SliderFlowViewController.self, with: slider?.infoBackImageName ?? "infoBackImage-1", bundleName: "Onboarding")
     }
 }
 

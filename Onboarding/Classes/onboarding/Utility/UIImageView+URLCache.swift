@@ -37,10 +37,10 @@ extension UIImageView {
 }
 
 extension UIImage {
-    static func bundledImage<Class: NSObject>(for class: Class.Type, with name: String) -> UIImage? {
-        let image = UIImage(named: name)
-        if image == nil {
-            return UIImage(named: name, in: Bundle(for: Class.self), compatibleWith: nil)
+    static func bundledImage<Class: NSObject>(for class: Class.Type, with name: String, bundleName: String) -> UIImage? {
+        var image = UIImage(named: name)
+        if let bundle = Bundle.getBundle(for: Class.self, resourceName: bundleName, ext: "bundle") {
+            image = UIImage(named: name, in: bundle, compatibleWith: nil)
         }
         return image
     }

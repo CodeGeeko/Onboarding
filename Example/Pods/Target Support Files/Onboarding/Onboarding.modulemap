@@ -1,6 +1,0 @@
-framework module Onboarding {
-  umbrella header "Onboarding-umbrella.h"
-
-  export *
-  module * { export * }
-}

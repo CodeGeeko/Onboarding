@@ -1,5 +1,5 @@
 class OnboardingStepFlowFactory {
-    public static func viewController(for screen: ScreenType,
+    static func viewController(for screen: ScreenType,
                                       with delegate: OnboardingFlowControllerDelegate? = nil) -> UIViewController {
         return getContainer(with: screen,
                             delegate: delegate)
@@ -22,14 +22,12 @@ private extension OnboardingStepFlowFactory {
                 guard let containedViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SliderContainer.self)) as? SliderContainer else { return UIViewController() }
                 containedViewController.delegate = delegate
                 return containedViewController
-//                let sliderViewModel = SliderViewModel()
-//                let containedViewController = SliderContainer(with: "SliderContainer",
-//                                                              bundle: Bundle(for: SliderContainer.self),
-//                                                              contentProvider: sliderViewModel)
-//
+
             case .interests:
-                let viewModel = SliderViewModel()
-                let containedViewController = IntrestsContainer(with: "IntrestsContainer", bundle: .main, contentProvider: viewModel)
+                let storyboard = UIStoryboard(name: "OnboardingFlow",
+                                              bundle: Bundle(for: IntrestsContainer.self))
+                guard let containedViewController = storyboard.instantiateViewController(withIdentifier: String(describing: IntrestsContainer.self)) as? IntrestsContainer else { return UIViewController() }
+                containedViewController.delegate = delegate
                 return containedViewController
             case .discover:
                 let viewModel = DiscoverViewModel()
