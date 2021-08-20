@@ -2,9 +2,10 @@
 ///TODO: Loading indicator should be managed by a protocol here
 ///TODO: The skip journey should be managed by a protocol here
 class SliderContainer: UIViewController {
+
     private var currentIndex: Int = 0
     var delegate: OnboardingFlowControllerDelegate?
-    @IBOutlet private var pageControl: UIPageControl!
+    @IBOutlet private weak var pageControl: UIPageControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,9 +15,7 @@ class SliderContainer: UIViewController {
 // MARK: - Render
 extension SliderContainer {
     private func fetchSliderContent() {
-        //self.showLoadingView()
         SliderViewModel.shared.fetchSliderContent { (error) in
-            //self.hideLoadingView()
             if let error = error {
                 print("Error occured:\(error)")
                 return
@@ -31,6 +30,7 @@ extension SliderContainer {
     }
 
     private func setUpNavigationItems() {
+        self.navigationItem.setHidesBackButton(true, animated: true)
         let textColor = UIColor(hexString: "4913b6")
         let skipButton = UIButton(frame: CGRect(x: 0, y: 0, width: 34, height: 15))
         skipButton.setTitle("Skip", for: .normal)
@@ -99,7 +99,10 @@ extension SliderContainer {
 
 extension SliderContainer {
     @objc func skipDidTap() {
-        dismiss(animated: true, completion: nil)
+        guard let interestsContainer = OnboardingStepFlowFactory.viewController(for: .interests, with: self) as? IntrestsContainer else { return }
+        interestsContainer.setUpContentProvider(with: SliderViewModel.shared.interests ?? [])
+        let navigator = OnboardingFlowNavigationCoordinator(with: self.navigationController)
+        navigator.pushOrPresent(with: interestsContainer, isPush: true)
     }
 }
 
@@ -110,7 +113,6 @@ extension SliderContainer: UIPageViewControllerDataSource, UIPageViewControllerD
               let count = SliderViewModel.shared.sliders?.count
         else { return nil }
 
-        print(viewControllerIndex)
         currentIndex = viewControllerIndex - 1
         if currentIndex > 0 && currentIndex <= count  {
             return getCurrentSliderContainer()
@@ -142,10 +144,10 @@ extension SliderContainer: UIPageViewControllerDataSource, UIPageViewControllerD
 
 extension SliderContainer: OnboardingFlowControllerDelegate {
     func didSkipOnboarding() {
-        //do nothing for now
+        // do nothing for now
     }
     
     func didCompleteOnboarding() {
-        //do nothing for now
+        // do nothing for now
     }
 }
