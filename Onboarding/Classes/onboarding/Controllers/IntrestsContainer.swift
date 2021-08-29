@@ -5,9 +5,10 @@ class IntrestsContainer: UIViewController {
     @IBOutlet private weak var headerLabel: UILabel!
     @IBOutlet private weak var bodyContainerView: UIView!
     @IBOutlet private weak var chipCollection: UICollectionView!
+    @IBOutlet private weak var continueBtn: UIButton!
     var delegate: OnboardingFlowControllerDelegate?
     var interests: [String]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.render()
@@ -28,7 +29,6 @@ extension IntrestsContainer {
         chipCollection.register(
             MDCChipCollectionViewCell.self,
             forCellWithReuseIdentifier: "chips")
-        //chipCollection.collectionViewLayout = layout
         let bundle = Bundle.getBundle(for: IntrestsContainer.self, resourceName: "interestsHeader", ext: "pdf")
         topHeaderImage.image = UIImage(named: "interestsHeader", in: bundle, with: nil)
     }
@@ -53,10 +53,12 @@ extension IntrestsContainer: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //do nothing for now
+        print(1)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         //do nothing for now
+        print(2)
     }
 }
 
@@ -96,5 +98,13 @@ extension IntrestsContainer: UICollectionViewDelegateFlowLayout {
 extension IntrestsContainer {
     public func setUpContentProvider(with interests: [String]) {
         self.interests = interests
+    }
+}
+
+extension IntrestsContainer {
+    @IBAction func continueDidTap(_ sender: Any) {
+        guard let discoverContainer = OnboardingStepFlowFactory.viewController(for: .discover) as?  DiscoverContainer else { return }
+        let navigator = OnboardingFlowNavigationCoordinator(with: self.navigationController)
+        navigator.pushOrPresent(with: discoverContainer, isPush: true)
     }
 }

@@ -121,6 +121,9 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="continueDidTap:" destination="gSC-lK-eDu" eventType="touchUpInside" id="l7H-yK-lQd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -158,6 +161,7 @@
                     <connections>
                         <outlet property="bodyContainerView" destination="WMc-53-eEG" id="5Bm-8r-TAB"/>
                         <outlet property="chipCollection" destination="Qek-PO-2Lo" id="NqV-vb-XUa"/>
+                        <outlet property="continueBtn" destination="Sf0-kf-0uq" id="Csz-x8-5E4"/>
                         <outlet property="headerLabel" destination="WKH-sU-gOs" id="B9B-vY-3NO"/>
                         <outlet property="topHeaderImage" destination="mEO-Ax-xAs" id="fJn-dR-Cg0"/>
                     </connections>
@@ -165,6 +169,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBs-NE-W3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="341.60000000000002" y="-14.842578710644679"/>
+        </scene>
+        <!--Discover Container-->
+        <scene sceneID="CqJ-Fm-IfX">
+            <objects>
+                <viewController storyboardIdentifier="DiscoverContainer" id="a3C-nq-HWn" customClass="DiscoverContainer" customModule="Onboarding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PGT-V6-LcG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0tJ-vZ-9F0">
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enb-fa-FJV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="discoveryHeader" translatesAutoresizingMaskIntoConstraints="NO" id="f5E-o4-5G8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-cG-F76">
+                                        <rect key="frame" x="15" y="15" width="131" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvb-tD-3yH">
+                                        <rect key="frame" x="328" y="15" width="32" height="26.5"/>
+                                        <state key="normal" image="filterIcon"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="mvb-tD-3yH" firstAttribute="top" secondItem="Enb-fa-FJV" secondAttribute="top" constant="15" id="0cC-h5-pFQ"/>
+                                    <constraint firstItem="F6G-cG-F76" firstAttribute="leading" secondItem="Enb-fa-FJV" secondAttribute="leading" constant="15" id="Cpj-l9-xsQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="mvb-tD-3yH" secondAttribute="trailing" constant="15" id="OKB-dE-j2T"/>
+                                    <constraint firstItem="F6G-cG-F76" firstAttribute="top" secondItem="Enb-fa-FJV" secondAttribute="top" constant="15" id="Xnt-1x-R4L"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LBx-Jh-Pmc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0tJ-vZ-9F0" firstAttribute="trailing" secondItem="LBx-Jh-Pmc" secondAttribute="trailing" id="Cyi-VA-Zug"/>
+                            <constraint firstItem="0tJ-vZ-9F0" firstAttribute="leading" secondItem="LBx-Jh-Pmc" secondAttribute="leading" id="EAG-Ed-l1a"/>
+                            <constraint firstItem="Enb-fa-FJV" firstAttribute="top" secondItem="LBx-Jh-Pmc" secondAttribute="top" id="ESg-0M-KRe"/>
+                            <constraint firstItem="0tJ-vZ-9F0" firstAttribute="top" secondItem="F6G-cG-F76" secondAttribute="top" constant="80" id="Vs3-pv-QhT"/>
+                            <constraint firstItem="Enb-fa-FJV" firstAttribute="trailing" secondItem="LBx-Jh-Pmc" secondAttribute="trailing" id="kx4-PI-3az"/>
+                            <constraint firstItem="LBx-Jh-Pmc" firstAttribute="bottom" secondItem="Enb-fa-FJV" secondAttribute="bottom" constant="487" id="mcK-ga-YfX"/>
+                            <constraint firstItem="Enb-fa-FJV" firstAttribute="leading" secondItem="LBx-Jh-Pmc" secondAttribute="leading" id="trV-vy-bQ9"/>
+                            <constraint firstItem="0tJ-vZ-9F0" firstAttribute="bottom" secondItem="LBx-Jh-Pmc" secondAttribute="bottom" id="xnn-gA-Ygn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterBtn" destination="mvb-tD-3yH" id="Fr0-at-kNE"/>
+                        <outlet property="videoTable" destination="0tJ-vZ-9F0" id="IKZ-TS-wG6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VzE-5F-mfF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.4000000000001" y="-13.943028485757123"/>
         </scene>
         <!--Slider Flow View Controller-->
         <scene sceneID="Ceg-61-bdu">
@@ -243,6 +308,8 @@
     </scenes>
     <resources>
         <image name="bannerImage-1" width="335" height="243"/>
+        <image name="discoveryHeader" width="428" height="287"/>
+        <image name="filterIcon" width="32" height="26.5"/>
         <image name="interestsHeader" width="428" height="211"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

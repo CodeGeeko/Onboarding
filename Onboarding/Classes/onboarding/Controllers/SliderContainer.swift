@@ -23,6 +23,7 @@ extension SliderContainer {
             self.render()
         }
     }
+
     private func render() {
         setUpNavigationItems()
         setUpStyle()

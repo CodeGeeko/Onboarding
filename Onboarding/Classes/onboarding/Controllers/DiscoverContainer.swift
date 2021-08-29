@@ -1,54 +1,69 @@
 class DiscoverContainer: UIViewController {
-    private var contentProvider: DiscoverViewModel
-    var tableManager: DiscoverTableManager
-    private var delegate: OnboardingFlowControllerDelegate?
-    public init(with nibNameOrNil: String?,
-                bundle nibBundleOrNil: Bundle?,
-                contentProvider: DiscoverViewModel,
-                delegate: OnboardingFlowControllerDelegate? = nil) {
-        self.contentProvider = contentProvider
-        self.delegate = delegate
-        self.tableManager = DiscoverTableManager()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    @available(*, unavailable)
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    @IBOutlet private weak var videoTable: UITableView!
+    @IBOutlet private weak var filterBtn: UIButton!
+    var tableManager: DiscoverTableManager?
+    var delegate: OnboardingFlowControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.render()
+        fetchTutorialsContent()
     }
 }
 // MARK: - Render
 extension DiscoverContainer {
     private func render() {
-        self.setUpStyle()
-        self.setUpTableManager()
-        self.setUpScrollView()
-        self.renderDownloadAppInfo()
-        self.renderAppslist()
+        setUpStyle()
+        setUpTableManager()
+        setUpNavigationItems()
     }
-    private func renderDownloadAppInfo() {
-       
-    }
-    private func renderAppslist() {
-        
-    }
+
     private func setUpStyle() {
         
     }
+
     private func setUpTableManager() {
-        
+        let tableManager = DiscoverTableManager(with: self)
+        tableManager.setVideos(videos: DiscoverViewModel.shared.videos)
+        self.videoTable.delegate = tableManager
+        self.videoTable.dataSource = tableManager
     }
-    private func setUpScrollView() {
+
+    private func setUpNavigationItems() {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        let textColor = UIColor(hexString: "000000")
+        let skipButton = UIButton(frame: CGRect(x: 0, y: 0, width: 34, height: 15))
+        skipButton.setTitle("Login", for: .normal)
+        skipButton.setTitleColor(textColor, for: .normal)
+        skipButton.addTarget(self, action: #selector(loginDidTap), for: .touchUpInside)
+        navigationItem.rightBarButtonItem =  UIBarButtonItem(customView: skipButton)
+        navigationItem.rightBarButtonItem?.tintColor = textColor
     }
 }
 
-//MARK: Auto Refresh Based on Scroll
-extension DiscoverContainer: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+extension DiscoverContainer: VideoInteractable {
+    func didSelectVideo(with videoInfo: Any) {
+        //do nothing for now
+    }
+}
+
+extension DiscoverContainer {
+    @objc func loginDidTap() {
+//        guard let loginContainer = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: CGLoginViewController.self)) else { return }
+//        loginContainer.delegate = delegate
+//
+//        let navigator = OnboardingFlowNavigationCoordinator(with: self.navigationController)
+//        navigator.pushOrPresent(with: loginContainer, isPush: true)
+    }
+}
+
+extension DiscoverContainer {
+    private func fetchTutorialsContent() {
+        DiscoverViewModel.shared.fetchTutorialInfo(with: {(error) in
+            if let error = error {
+                print("Error occured:\(error)")
+                return
+            }
+            self.render()
+        })
     }
 }

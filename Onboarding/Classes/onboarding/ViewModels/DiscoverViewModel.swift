@@ -1,32 +1,33 @@
+// MARK: Network
 class DiscoverViewModel {
-    private(set) var model: Tutorial?
+    static let shared = DiscoverViewModel()
+    private var tutorial: Tutorials?
 }
 
-// MARK: Network
 extension DiscoverViewModel {
-    func fetchOnboardingInfo(with completion: @escaping (_ error: NSError?) -> Void) {
-        //TODO: Network code here - From OnboardingDataSource
-        OnboardingDataSource.getDiscoverFeeds(for: Tutorial.self, url: "") { info, error in
+    func fetchTutorialInfo(with completion: @escaping (_ error: NSError?) -> Void) {
+        let url = URLConstants.baseUrl_local + URLConstants.discover
+        TutorialDataSource.getDiscoverFeeds(for: Tutorials.self, url: url, completion: { info, error in
             if error != nil {
                 debugPrint("Error occured:\(String(describing: error?.description))")
                 completion(error)
                 return
             }
             guard let info = info else { return }
-            self.model = info
-        }
+            self.tutorial = info
+        })
     }
 }
 // MARK: Capture Values
 extension DiscoverViewModel {
     var screenTitle: String {
-        return "Screen Title"
+        return "Discover"
     }
 }
 
 // MARK: Capture Objects
 extension DiscoverViewModel {
-    var videoElements: [TutorialElement] {
-        return self.model?.tutorials ?? []
+    var videos: [Tutorial] {
+        return self.tutorial?.tutorials ?? []
     }
 }

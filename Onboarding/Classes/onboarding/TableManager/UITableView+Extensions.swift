@@ -101,4 +101,9 @@ public extension UITableView {
         }
         return UINib(nibName: String(describing: nibType), bundle: Bundle(for: nibType))
     }
+
+    func defaultTableViewCell() -> UITableViewCell {
+        guard let tableViewCell = self.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+        return tableViewCell
+    }
 }

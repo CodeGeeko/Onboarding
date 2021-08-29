@@ -30,8 +30,10 @@ private extension OnboardingStepFlowFactory {
                 containedViewController.delegate = delegate
                 return containedViewController
             case .discover:
-                let viewModel = DiscoverViewModel()
-                let containedViewController = DiscoverContainer(with: "DiscoverContainer", bundle: .main, contentProvider: viewModel, delegate: delegate)
+                let storyboard = UIStoryboard(name: "OnboardingFlow",
+                                              bundle: Bundle(for: DiscoverContainer.self))
+                guard let containedViewController = storyboard.instantiateViewController(withIdentifier: String(describing: DiscoverContainer.self)) as? DiscoverContainer else { return UIViewController() }
+                containedViewController.delegate = delegate
                 return containedViewController
         }
     }
