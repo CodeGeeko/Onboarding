@@ -1,12 +1,19 @@
 import UIKit
 
+public protocol VideoInteractable {
+    func didSelectVideo(with videoInfo: Any)
+}
+
 class DiscoverTableManager: NSObject {
     private var videos: [Tutorial]  = []
-    private let deviceViewCellHeight: CGFloat = 58.0
-    override init() {
-        super.init()
+    private let cellHeight: CGFloat = 142.0
+    private var delegate: VideoInteractable?
+
+    init(with delegate: VideoInteractable) {
+        self.delegate = delegate
     }
-    func setDevices(videos: [Tutorial]) {
+
+    func setVideos(videos: [Tutorial]) {
         self.videos = videos
     }
 }
@@ -17,15 +24,22 @@ extension DiscoverTableManager: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.videos.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeuedCell(ofType: UITableViewCell.self, indexPath: indexPath)
+        guard let videoInfo = self.videos[safe: indexPath.row] else { return tableView.defaultTableViewCell() }
+        let cell = tableView.dequeuedCell(ofType: VideoCell.self, indexPath: indexPath)
+        cell.configureCell(videoInfo: videoInfo)
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return deviceViewCellHeight
+        return cellHeight
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let videoInfo = self.videos[safe: indexPath.row] else { return }
+        self.delegate?.didSelectVideo(with: videoInfo)
     }
 }

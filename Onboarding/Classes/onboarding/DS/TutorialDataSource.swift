@@ -1,9 +1,9 @@
 import Alamofire
 
-struct OnboardingDataSource {
-    static func getGeekoOnboardingJSON<Model: Decodable>(for model: Model.Type,
-                                                    url: String,
-                                                    completion: @escaping (Model?, NSError?) -> Void) {
+struct TutorialDataSource {
+    static func getDiscoverFeeds<Model: Decodable>(for model: Model.Type,
+                                                   url: String,
+                                                   completion: @escaping (_ data: Model?, _ error: NSError?) -> Void) {
         //TODO: Network call here... Geeko AlamoFire
         Alamofire.request(url).response { response in
             debugPrint(response)
@@ -18,4 +18,3 @@ struct OnboardingDataSource {
         }
     }
 }
-
