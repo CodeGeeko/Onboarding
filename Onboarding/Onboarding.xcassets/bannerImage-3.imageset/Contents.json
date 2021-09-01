@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Screenshot 2021-07-21 at 4.53.14 PM.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Screenshot 2021-07-21 at 4.53.14 PM@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Screenshot 2021-07-21 at 4.53.14 PM@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "bannerImage-3.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

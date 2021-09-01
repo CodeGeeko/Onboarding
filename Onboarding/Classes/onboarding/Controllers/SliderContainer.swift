@@ -1,12 +1,13 @@
-///TODO: This container should be refactored. The page controller should be managed separately and other minor refactoring needed
-///TODO: Loading indicator should be managed by a protocol here
-///TODO: The skip journey should be managed by a protocol here
 class SliderContainer: UIViewController {
 
     private var currentIndex: Int = 0
     var delegate: OnboardingFlowControllerDelegate?
-    @IBOutlet private weak var pageControl: UIPageControl!
+    private var progressBarView: StepProgressView?
+    var progressBarViewHeight: CGFloat = 20.0
+    var progressBarHeightOffset: CGFloat = 1.0
+    var progressBarStepHeight: CGFloat = 10.0
 
+    @IBOutlet private weak var pageControl: UIPageControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchSliderContent()
@@ -32,18 +33,34 @@ extension SliderContainer {
 
     private func setUpNavigationItems() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        let textColor = UIColor(hexString: "4913b6")
         let skipButton = UIButton(frame: CGRect(x: 0, y: 0, width: 34, height: 15))
         skipButton.setTitle("Skip", for: .normal)
-        skipButton.setTitleColor(textColor, for: .normal)
+        skipButton.setTitleColor(.white, for: .normal)
         skipButton.addTarget(self, action: #selector(skipDidTap), for: .touchUpInside)
         navigationItem.rightBarButtonItem =  UIBarButtonItem(customView: skipButton)
-        navigationItem.rightBarButtonItem?.tintColor = textColor
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        setUpNavigationBarTintColor(with: 1)
     }
 
     private func setUpStyle() {
         pageControl.currentPageIndicatorTintColor = UIColor(hexString: "ffc400")
         pageControl.pageIndicatorTintColor = UIColor(hexString: "4A0BC3")
+    }
+
+    private func setUpNavigationBarTintColor(with stepNumber: Int) {
+        self.navigationController?.navigationBar.barTintColor = hexColor(with: stepNumber)
+        updateProgressBar(to: stepNumber)
+    }
+    private func hexColor(with stepNumber: Int) -> UIColor {
+        var hexString: String = ""
+        switch stepNumber {
+            case 1: hexString = "#4320b6"
+            case 2: hexString = "#a32bd4"
+            case 3: hexString = "#52baee"
+            case 4: hexString = "#edca4b"
+            default: break
+        }
+        return UIColor(hexString: hexString)
     }
 }
 
@@ -76,15 +93,15 @@ extension SliderContainer {
     }
     
     private func insertPageControllerView(with pageViewController: UIPageViewController) {
-        if let progressBarView = pageControl {
-            view.insertSubview(pageViewController.view, belowSubview: progressBarView)
+        setUpProgressBar(with: SliderViewModel.shared.sliders?.count ?? 0, stepNumber: 1)
+        if let progressBarView = progressBarView {
+            view.insertSubview(pageViewController.view, aboveSubview: progressBarView)
             pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
             pageViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             pageViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            pageViewController.view.heightAnchor.constraint(equalToConstant: view.frame.size.height - pageControl.frame.size.height).isActive = true
-            if let topAnchor = pageControl?.topAnchor {
-                pageViewController.view.bottomAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-            }
+            pageViewController.view.heightAnchor.constraint(equalToConstant: view.frame.size.height).isActive = true
+            pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: progressBarViewHeight).isActive = true
+            progressBarView.backgroundColor = .brown
         }
         self.addChild(pageViewController)
         self.view.addSubview(pageViewController.view)
@@ -94,7 +111,35 @@ extension SliderContainer {
     func getCurrentSliderContainer() -> UIViewController? {
         guard let sliderInfo = SliderViewModel.shared.sliders?[safe: currentIndex - 1] else { return nil }
         pageControl.currentPage = currentIndex
+        setUpNavigationBarTintColor(with: currentIndex)
+        progressBarView?.backgroundColor = hexColor(with: currentIndex)
         return getSliderContainer(with: sliderInfo)
+    }
+
+    private func setUpProgressBar(with numberOfSteps: Int = 0, stepNumber: Int? = 1) {
+        guard numberOfSteps > 1 else { return }
+        self.progressBarView = StepProgressView(with: numberOfSteps,
+                                                barHeight: progressBarStepHeight)
+        if let progressView = progressBarView {
+            view.insertSubview(progressView, aboveSubview: view)
+            progressView.translatesAutoresizingMaskIntoConstraints = false
+            progressView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            progressView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            progressView.heightAnchor.constraint(equalToConstant: progressBarViewHeight).isActive = true
+            if let bottomAnchor = self.navigationController?.navigationBar.bottomAnchor {
+                progressView.topAnchor.constraint(equalTo: bottomAnchor, constant: progressBarHeightOffset).isActive = true
+            }
+            let separatorView = UIView(frame: CGRect(x: 0,
+                                                     y: progressBarViewHeight,
+                                                     width: view.frame.size.width,
+                                                     height: 1))
+            view.insertSubview(separatorView, aboveSubview: view)
+            updateProgressBar(to: stepNumber)
+        }
+    }
+
+    private func updateProgressBar(to stepNumber: Int?) {
+        progressBarView?.updateProgress(to: stepNumber)
     }
 }
 
@@ -132,14 +177,6 @@ extension SliderContainer: UIPageViewControllerDataSource, UIPageViewControllerD
             return getCurrentSliderContainer()
         }
         return nil
-    }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return SliderViewModel.shared.sliders?.count ?? 0
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return self.currentIndex
     }
 }
 
