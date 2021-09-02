@@ -19,7 +19,7 @@ class VideoCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpStyle()
+        setUp()
     }
     
     func configureCell(videoInfo: Tutorial) {
@@ -27,8 +27,11 @@ class VideoCell: UITableViewCell {
     }
 }
 private extension VideoCell {
-    func setUpStyle() {
-        //can do it later
+    func setUp() {
+        let viewsImage = UIImage.bundledImage(for: VideoCell.self, with: "viewsIcon", bundleName: "Onboarding")
+        viewsIcon.image = viewsImage
+        let kudosImage = UIImage.bundledImage(for: VideoCell.self, with: "likesIcon", bundleName: "Onboarding")
+        likesIcon.image = kudosImage
     }
 
     func populateValues(videoInfo: Tutorial) {
@@ -39,12 +42,6 @@ private extension VideoCell {
         thumbIconImage.load(path: videoInfo.videoBannerURL)
 
         var imageName: String = "gold"
-//        switch videoInfo.badge {
-//            case .Bronze: imageName = "bronze"
-//            case .Silver: imageName = "silver"
-//            case .Gold: imageName = "gold"
-//            case .Diamond: imageName = "diamond"
-//        }
         let bundle = Bundle.getBundle(for: VideoCell.self, resourceName: imageName, ext: "pdf")
         gradeIcon.image = UIImage(named: imageName, in: bundle, with: nil)
     }

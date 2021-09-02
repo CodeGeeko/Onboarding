@@ -1,42 +1,47 @@
 class DiscoverContainer: UIViewController {
     @IBOutlet private weak var videoTable: UITableView!
     @IBOutlet private weak var filterBtn: UIButton!
-    var tableManager: DiscoverTableManager?
+    @IBOutlet private weak var headerImage: UIImageView!
+    @IBOutlet private var tableManager: DiscoverTableManager?
     var delegate: OnboardingFlowControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchTutorialsContent()
+        tableManager?.delegate = self
     }
 }
 // MARK: - Render
 extension DiscoverContainer {
     private func render() {
-        setUpStyle()
-        setUpTableManager()
+        setUpScreenComponents()
         setUpNavigationItems()
+        populateTableContents()
     }
 
-    private func setUpStyle() {
-        
-    }
-
-    private func setUpTableManager() {
-        let tableManager = DiscoverTableManager(with: self)
-        tableManager.setVideos(videos: DiscoverViewModel.shared.videos)
-        self.videoTable.delegate = tableManager
-        self.videoTable.dataSource = tableManager
+    private func setUpScreenComponents() {
+        let imgHeader = UIImage.bundledImage(for: DiscoverContainer.self, with: "discoveryHeader", bundleName: "Onboarding")
+        headerImage.image = imgHeader
+        let filterIcon = UIImage.bundledImage(for: DiscoverContainer.self, with: "filterIcon", bundleName: "Onboarding")
+        filterBtn.setImage(filterIcon, for: .normal)
+        view.bringSubviewToFront(self.videoTable)
     }
 
     private func setUpNavigationItems() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        let textColor = UIColor(hexString: "000000")
         let skipButton = UIButton(frame: CGRect(x: 0, y: 0, width: 34, height: 15))
         skipButton.setTitle("Login", for: .normal)
-        skipButton.setTitleColor(textColor, for: .normal)
+        skipButton.setTitleColor(.white, for: .normal)
         skipButton.addTarget(self, action: #selector(loginDidTap), for: .touchUpInside)
         navigationItem.rightBarButtonItem =  UIBarButtonItem(customView: skipButton)
-        navigationItem.rightBarButtonItem?.tintColor = textColor
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red: (65.0/255.0), green: (33.0/255.0), blue: (176.0/255.0), alpha: 1.0)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+
+    private func populateTableContents() {
+        self.tableManager?.setVideos(videos: DiscoverViewModel.shared.videos)
+        self.videoTable.reloadData()
     }
 }
 

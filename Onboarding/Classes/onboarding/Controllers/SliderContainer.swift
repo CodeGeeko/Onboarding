@@ -3,8 +3,8 @@ class SliderContainer: UIViewController {
     private var currentIndex: Int = 0
     var delegate: OnboardingFlowControllerDelegate?
     private var progressBarView: StepProgressView?
-    var progressBarViewHeight: CGFloat = 20.0
-    var progressBarHeightOffset: CGFloat = 1.0
+    var progressBarViewHeight: CGFloat = 40.0
+    var progressBarHeightOffset: CGFloat = 2.0
     var progressBarStepHeight: CGFloat = 10.0
 
     @IBOutlet private weak var pageControl: UIPageControl!
@@ -111,7 +111,6 @@ extension SliderContainer {
     func getCurrentSliderContainer() -> UIViewController? {
         guard let sliderInfo = SliderViewModel.shared.sliders?[safe: currentIndex - 1] else { return nil }
         pageControl.currentPage = currentIndex
-        setUpNavigationBarTintColor(with: currentIndex)
         progressBarView?.backgroundColor = hexColor(with: currentIndex)
         return getSliderContainer(with: sliderInfo)
     }
@@ -129,16 +128,19 @@ extension SliderContainer {
             if let bottomAnchor = self.navigationController?.navigationBar.bottomAnchor {
                 progressView.topAnchor.constraint(equalTo: bottomAnchor, constant: progressBarHeightOffset).isActive = true
             }
-            let separatorView = UIView(frame: CGRect(x: 0,
-                                                     y: progressBarViewHeight,
-                                                     width: view.frame.size.width,
-                                                     height: 1))
-            view.insertSubview(separatorView, aboveSubview: view)
+
+            progressView.translatesAutoresizingMaskIntoConstraints = false
+            progressView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            progressView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+            progressView.view.backgroundColor = hexColor(with: 1)
+            progressView.inactiveStepBackgroundColor = .white
+            progressView.activeStepBackgroundColor = UIColor(hexString: "ffc400")
             updateProgressBar(to: stepNumber)
         }
     }
 
-    private func updateProgressBar(to stepNumber: Int?) {
+    private func updateProgressBar(to stepNumber: Int? = 1) {
         progressBarView?.updateProgress(to: stepNumber)
     }
 }

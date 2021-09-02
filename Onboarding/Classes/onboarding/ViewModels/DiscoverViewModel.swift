@@ -10,11 +10,11 @@ extension DiscoverViewModel {
         TutorialDataSource.getDiscoverFeeds(for: Tutorials.self, url: url, completion: { info, error in
             if error != nil {
                 debugPrint("Error occured:\(String(describing: error?.description))")
-                completion(error)
                 return
             }
             guard let info = info else { return }
             self.tutorial = info
+            completion(error)
         })
     }
 }

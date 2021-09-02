@@ -7,11 +7,7 @@ public protocol VideoInteractable {
 class DiscoverTableManager: NSObject {
     private var videos: [Tutorial]  = []
     private let cellHeight: CGFloat = 142.0
-    private var delegate: VideoInteractable?
-
-    init(with delegate: VideoInteractable) {
-        self.delegate = delegate
-    }
+    var delegate: VideoInteractable?
 
     func setVideos(videos: [Tutorial]) {
         self.videos = videos

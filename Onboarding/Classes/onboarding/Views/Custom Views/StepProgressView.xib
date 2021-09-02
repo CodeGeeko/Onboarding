@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StepProgressView" customModule="MembersActiveRewards" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StepProgressView" customModule="Onboarding" customModuleProvider="target">
             <connections>
                 <outlet property="progressBarHeightContraint" destination="IN3-Vj-7PC" id="Y7g-Og-sxS"/>
                 <outlet property="progressStackView" destination="JC7-YI-sOZ" id="Xq4-2R-jYp"/>
@@ -30,16 +28,27 @@
                                 <constraint firstAttribute="height" constant="11" id="IN3-Vj-7PC"/>
                             </constraints>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-9V-QNZ">
+                            <rect key="frame" x="0.0" y="62" width="375" height="2"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="6CJ-ek-nVg"/>
+                            </constraints>
+                        </view>
                     </subviews>
+                    <viewLayoutGuide key="safeArea" id="cOR-VF-mhb"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="JC7-YI-sOZ" firstAttribute="trailing" secondItem="VVH-Go-44z" secondAttribute="trailing" constant="-15" id="5KY-du-y0H"/>
+                        <constraint firstAttribute="trailing" secondItem="SYS-9V-QNZ" secondAttribute="trailing" id="7pl-D1-TfH"/>
+                        <constraint firstItem="SYS-9V-QNZ" firstAttribute="bottom" secondItem="cOR-VF-mhb" secondAttribute="bottom" id="Fva-I9-dT1"/>
                         <constraint firstItem="JC7-YI-sOZ" firstAttribute="centerY" secondItem="VVH-Go-44z" secondAttribute="centerY" constant="-2" id="VwP-Wu-vjz"/>
                         <constraint firstItem="JC7-YI-sOZ" firstAttribute="leading" secondItem="VVH-Go-44z" secondAttribute="leading" constant="15" id="ZsF-aX-7qD"/>
+                        <constraint firstItem="SYS-9V-QNZ" firstAttribute="leading" secondItem="VVH-Go-44z" secondAttribute="leading" id="vb2-fW-hL8"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="cOR-VF-mhb"/>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="VVH-Go-44z" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="4hE-rQ-55o"/>
@@ -48,7 +57,6 @@
                 <constraint firstItem="VVH-Go-44z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lNa-qn-fmY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="-95.200000000000003" y="221.28935532233885"/>
         </view>
     </objects>

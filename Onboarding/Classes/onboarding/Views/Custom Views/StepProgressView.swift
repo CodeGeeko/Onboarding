@@ -81,6 +81,7 @@ extension StepProgressView {
         let view = UIView()
         view.backgroundColor = inactiveStepBackgroundColor
         view.heightAnchor.constraint(equalToConstant: progressBarHeight)
+
         return view
     }
 
